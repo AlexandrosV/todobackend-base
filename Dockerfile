@@ -1,3 +1,4 @@
+# All operating system dependencies should be resolved in this image
 FROM ubuntu:trusty
 MAINTAINER Alejandro Villamarin <favm@emaiil.com>
 
@@ -11,7 +12,7 @@ RUN sed -i "s/https:\/\/archive./https:\/\/cz.archive./g" /etc/apt/sources.list
 RUN apt-get update && \
     apt-get install -y \
     -o APT::Install-Recommend=false -o APT::Install-Suggest=false \
-     python python-virtualenv
+     python python-virtualenv libpython2.7 python-mysqldb
 
 # Create virtual environment and upgrade PIP
 # https://hynek.me/articles/virtualenv-lives/
